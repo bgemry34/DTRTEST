@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useRef} from 'react'
 import { addLog, addLogViaExcel, fetchTemplate } from '../../api';
 
 const date = new Date();
@@ -14,6 +14,7 @@ function AddDtr({setRecords,  records}) {
     const [importFile, setImportFile] = useState('');
 
     const [notification, setNotification] = useState('');
+    const fileInputRef = useRef(); 
 
     const handleChange = e => {
         setForm({...form, [e.target.name]:e.target.value})
@@ -53,6 +54,7 @@ function AddDtr({setRecords,  records}) {
         if(status == 200){
             setImportFile('');
             setNotification(toAlert('Log added successfully', 'success'));
+            fileInputRef.current.value = "";
             try{
                 setRecords([...data.
                     map(x=>{
@@ -156,7 +158,7 @@ function AddDtr({setRecords,  records}) {
                                         {notification}
                                     </div>
                                     <div className="formGroup">
-                                        <input type="file" required onChange={handleFile} name="imported_file" className="form-control" id=""/>
+                                        <input ref={fileInputRef} type="file" required onChange={handleFile} name="imported_file" className="form-control" id=""/>
                                     </div>
                                 </div>
                             </div>

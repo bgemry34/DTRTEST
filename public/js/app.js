@@ -67575,6 +67575,8 @@ function AddDtr(_ref) {
       notification = _useState6[0],
       setNotification = _useState6[1];
 
+  var fileInputRef = Object(react__WEBPACK_IMPORTED_MODULE_1__["useRef"])();
+
   var handleChange = function handleChange(e) {
     setForm(_objectSpread(_objectSpread({}, form), {}, _defineProperty({}, e.target.name, e.target.value)));
     console.log(form.time);
@@ -67648,6 +67650,7 @@ function AddDtr(_ref) {
               if (status == 200) {
                 setImportFile('');
                 setNotification(toAlert('Log added successfully', 'success'));
+                fileInputRef.current.value = "";
 
                 try {
                   setRecords([].concat(_toConsumableArray(data.map(function (x) {
@@ -67842,6 +67845,7 @@ function AddDtr(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, notification), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "formGroup"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+    ref: fileInputRef,
     type: "file",
     required: true,
     onChange: handleFile,
