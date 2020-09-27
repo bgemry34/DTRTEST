@@ -1,0 +1,50 @@
+.notif{
+    background-color: rgba(0,0,0, 0.74);
+    width: 300px;
+    height: 40px;
+    color: #ecf0f1;
+    position: fixed;
+    top:92%;
+    left:42%;
+    z-index: 1;
+    border-radius: 50px;
+    line-height: 2.3;
+    transition: opacity 1s ease-in-out;
+}
+
+.notif > div {
+    display:inline;
+}
+
+.notif .message{
+    font-size: 1rem;
+    margin-left: 60px;
+}
+
+.notif .undo{
+    margin-left:30px;
+    font-weight:bold;
+}
+
+.notif .close{
+    margin-top: 8px;
+    margin-right: 10px;
+    color: #f4f4f4;
+    outline: none;
+}
+
+.notif .undo button{
+    border: none;
+    background-color: inherit;
+    color: #ecf0f1;
+    font-weight: bolder;
+    outline: none;
+}
+
+.toShow{
+    opacity: 1;
+}
+
+.toHide{
+    opacity: 0;
+}
